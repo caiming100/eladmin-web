@@ -305,6 +305,9 @@ function CRUD(options) {
         dataStatus = crud.getDataStatus(this.getDataId(data))
       }
       if (!callVmHook(crud, CRUD.HOOK.beforeDelete, data)) {
+        if (delAll) {
+          crud.delAllLoading = false
+        } else dataStatus.delete = CRUD.STATUS.PREPARED
         return
       }
       if (!delAll) {
