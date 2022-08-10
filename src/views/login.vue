@@ -35,7 +35,7 @@
     <!--  底部  -->
     <div v-if="$store.state.settings.showFooter" id="el-login-footer">
       <span v-html="$store.state.settings.footerTxt" />
-      <span> ⋅ </span>
+      <span v-if="$store.state.settings.caseNumber"> ⋅ </span>
       <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">{{ $store.state.settings.caseNumber }}</a>
     </div>
   </div>
@@ -47,7 +47,7 @@ import Config from '@/settings'
 import { getCodeImg } from '@/api/login'
 import Cookies from 'js-cookie'
 import qs from 'qs'
-import Background from '@/assets/images/background.jpeg'
+import Background from '@/assets/images/background.webp'
 export default {
   name: 'Login',
   data() {
